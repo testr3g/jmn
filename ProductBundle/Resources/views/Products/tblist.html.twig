@@ -1,0 +1,31 @@
+    <table class="table table-bordered records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>{{'label.name'|trans([],'JmnProductBundle')}}</th>
+                <th>{{'label.description'|trans([],'JmnProductBundle')}}</th>
+                <th>{{'label.price'|trans([],'JmnProductBundle')}}</th>
+                <th>{{'label.creationdate'|trans([],'JmnProductBundle')}}</th>
+                <th>{{'label.createdby'|trans([],'JmnProductBundle')}}</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><a href="{{ path('products_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{% if product.creationdate %}{{ product.creationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ product.createdby }}</td>
+                <td class="list-action">
+                            <a href="{{ path('products_show', { 'id': product.id }) }}">{{'action.show'|trans([],'JmnProductBundle')}}</a>
+                            <a href="{{ path('products_edit', { 'id': product.id }) }}">{{'action.edit'|trans([],'JmnProductBundle')}}</a>
+                </td>
+            </tr>
+	{%else%}
+		<tr><td colspan="7">{{'No data found'|trans([],'JmnProductBundle')}}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>

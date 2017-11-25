@@ -1,0 +1,65 @@
+{% extends 'JmnProductBundle::leftcol.html.twig' %}
+{% block actions %}
+	{%include "JmnProductBundle:Param:actions.html.twig"%}
+{% endblock %}
+{% block body %}
+    	<legend><h1>{{'title.param.list'|trans([],'JmnProductBundle')}}</h1></legend>
+	<div id="content-liste">
+		{%include "JmnProductBundle:Param:tbliste.html.twig"%}
+	</div>
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="add_param" role="dialog">
+			<div class="modal-dialog">
+			
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">{{'action.add'|trans([],'JmnProductBundle')}} {{'entity.setting'|trans([],'JmnProductBundle')}}</h4>
+				</div>
+				<form action="{{ path('param_new') }}" method="post" class="style">
+					<div class="modal-body">
+						{{ form_errors(form) }}
+						{%include "JmnProductBundle:Param:newform.html.twig"%}
+						{{ form_rest(form) }}
+					</div>
+					<div class="modal-footer">
+						<input type="submit" value="{{'action.create'|trans([],'JmnProductBundle')}}">
+					</div>
+				</form>	
+			  </div>
+			  
+			</div>
+		</div>
+	</div>
+	{% block javascripts %}
+		<script>
+			$("#btn-search").click(function(){
+				if($("#inp-search").val()==""){
+					alert("Search fields is empty!");
+					return false;
+				}
+				var criteria = $("#inp-search").val();				
+				$('#content-liste').html("<center>{{'message.search_inprogress'|trans([],'JmnProductBundle')}} >>&nbsp;<img src=\"{{ asset('images/others/loading.gif') }}\" border='0' /></center>");
+				$(".pagination_content").hide();
+				$(".total_number").hide();
+				$(".list_link").show();
+				var DATA = 'description=' + criteria;
+				$.ajax({
+					type: "POST",
+					url: "{{ path('param_search')}}",
+					data: DATA,
+					cache: false,
+					success: function(data){
+						$('#content-liste').html(data);
+					}
+				});
+				return false;
+			});	
+
+		</script>
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/bootstrap/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/jquery/jquery.min.js') }}"></script>
+	{% endblock %}
+{% endblock %}

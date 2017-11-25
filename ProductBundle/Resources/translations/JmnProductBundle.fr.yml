@@ -1,0 +1,55 @@
+action.add: 'Ajouter'
+action.search: 'Rechercher'
+action.edit: 'Modifier'
+action.delete: 'Supprimer'
+action.show: 'Consulter'
+action.create: 'Créer'
+action.update: 'Modifier'
+action.back: 'Retour'
+action.list: 'Liste'
+action.confirm: 'Confirmer'
+action.remove: 'Supprimer'
+action.cancel: 'Annuler'
+action.duplicate: 'Dupliquer'
+
+label.description: "Description"
+label.createdby: "Créé par"
+label.creationdate: "Date de création"
+label.name: "Désignation"
+label.price: "Prix"
+label.id: "Numero"
+label.lastlogin: "Der. Connection"
+label.username: "Nom utilisateur"
+label.category: "Categorie"
+label.reference: "Réference"
+label.unit: "Unité"
+label.value: "Value"
+
+title.products.list: "Liste des products"
+title.products.creation: "Création d'un produit"
+title.products.show: "Consultation d'un produit"
+title.products.edition: "Modification d'un produit"
+title.param.list: "Liste des parametre"
+title.param.creation: "Création de parametre"
+title.param.show: "Consultation de parametre"
+title.param.edition: "Modification de parametre"
+
+entity.products: 'Produits'
+entity.users: 'Utilisateurs'
+entity.parameters: 'Parametres'
+entity.product: 'Produit'
+entity.user: 'Utilisateur'
+entity.parameter: 'Parametre'
+entity.setting: 'Parametre'
+
+security.login.username: "Nom utilisateur"
+security.login.password: "Mot de passe"
+user.login: 'Connection'
+
+message.alert.delete: "Alerte Suppression"
+message.confirm.delete: "Êtes-vous sûr de vouloir supprimer cet élément ?"
+message.searchresult: "Résultat de la recherche"
+message.found: "trouvé(s)"
+message.search.noresult: "Désolé, aucune réponse ne semble correspondre à votre requête."
+
+

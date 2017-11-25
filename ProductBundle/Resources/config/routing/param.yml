@@ -1,0 +1,28 @@
+param_index:
+    path:     /
+    defaults: { _controller: "JmnProductBundle:Param:index" }
+    methods:  GET
+param_show:
+    path:     /{id}/show
+    defaults: { _controller: "JmnProductBundle:Param:show" }
+    methods:  GET
+param_new:
+    path:     /new
+    defaults: { _controller: "JmnProductBundle:Param:new" }
+    methods:  [GET, POST]
+param_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "JmnProductBundle:Param:edit" }
+    methods:  [GET, POST]
+param_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "JmnProductBundle:Param:delete" }
+    methods:  DELETE
+param_search:
+    path:  /search/
+    defaults: { _controller: "JmnProductBundle:Param:search" }
+    methods:  [GET, POST]
+param_pagesearch:
+    path:  /pagesearch/
+    defaults: { _controller: "JmnProductBundle:Param:pagesearch" }
+    methods:  [GET, POST]

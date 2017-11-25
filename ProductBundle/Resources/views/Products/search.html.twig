@@ -1,0 +1,8 @@
+{% if criteria is defined %}
+	<div class="result_content">
+		{{'message.search.noresult'|trans([],'JmnProductBundle')}}
+	</div>
+{%else%}
+	<div class='numberfound'><b>{{'message.searchresult'|trans([],'JmnProductBundle')}}</b> : <span>{%if count is defined%}{{count}} {%else%}{{products|length}}{%endif%} {{'message.found'|trans([],'JmnProductBundle')}}</span></div>
+	{% include 'JmnProductBundle:Products:tblist.html.twig' %}
+{%endif%}

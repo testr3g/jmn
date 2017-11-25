@@ -1,0 +1,56 @@
+action.add: 'Add'
+action.search: 'Search'
+action.edit: 'Edit'
+action.delete: 'Delete'
+action.show: 'Show'
+action.create: 'Create'
+action.update: 'Update'
+action.back: 'Back'
+action.list: 'List'
+action.confirm: 'Confirm'
+action.remove: 'Remove'
+action.cancel: 'Cancel'
+action.close: 'Close'
+action.duplicate: 'Duplicate'
+
+label.description: "Description"
+label.createdby: "Created by"
+label.creationdate: "Creation date"
+label.price: "Price"
+label.id: "Id"
+label.lastlogin: "Last Login"
+label.email: "Email"
+label.name: "Name"
+label.username: "Username"
+label.category: "Category"
+label.reference: "Reference"
+label.unit: "Unit"
+label.value: "Value"
+
+title.products.list: "Products list"
+title.products.creation: "Product creation"
+title.products.show: "Product show"
+title.products.edition: "Product edition"
+title.param.list: "Param list"
+title.param.creation: "Param creation"
+title.param.show: "Param show"
+title.param.edition: "Param edition"
+
+entity.products: 'Products'
+entity.users: 'Users'
+entity.parameters: 'Parameters'
+entity.product: 'Product'
+entity.user: 'User'
+entity.parameter: 'Parameter'
+entity.setting: 'Setting'
+
+security.login.username: "Username"
+security.login.password: "Password"
+user.login: 'Login'
+user.password: 'Password'
+
+message.alert.delete: 'Alert delete'
+message.confirm.delete: 'Are you sure to delete this item ?'
+message.searchresult: 'Search result'
+message.found: 'found'
+message.search.noresult: 'Sorry , no result seems to match your query'

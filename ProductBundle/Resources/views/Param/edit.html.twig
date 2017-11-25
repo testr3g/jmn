@@ -1,0 +1,14 @@
+{% extends 'JmnProductBundle::leftcol.html.twig' %}
+{% block body %}
+	<div id="body-content">
+		<form action="{{ path('param_edit',{'id':param.id}) }}" method="post" class="style">
+			{{ form_errors(edit_form) }}
+			{%include "JmnProductBundle:Param:editactions.html.twig"%}
+			<div class="show_content">
+				{%include "JmnProductBundle:Param:editform.html.twig"%}
+				<br/>
+			</div>
+			{{ form_rest(edit_form) }}
+		</form>	
+	</div>
+{% endblock %}

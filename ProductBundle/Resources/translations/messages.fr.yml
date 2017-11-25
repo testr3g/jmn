@@ -1,0 +1,6 @@
+'No data found': 'Aucune données trouvées.'
+'No data found in database': 'Aucune données trouvées.'
+'An incident occured during the execution of the request': "Un incident s'est produit pendant le traitement de votre demande."
+'The name of the product entered already exists': "Le nom du produit existe déja"
+'Message sent successfully': "Message envoyé avec succes"
+'unable to send the message': "Impossible d'envoyer le message"

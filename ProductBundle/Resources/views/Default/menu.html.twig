@@ -1,0 +1,34 @@
+		<div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			  </button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+			  <ul class="nav navbar-nav">
+				<li>
+					<a href="{{path('products_index')}}">
+						{{'entity.products'|trans([],'JmnProductBundle')}}
+					</a>
+				</li>
+				<li>
+					<a href="{{path('param_index')}}">
+						{{'entity.parameters'|trans([],'JmnProductBundle')}}
+					</a>
+				</li>
+			  </ul>
+			  <ul class="nav navbar-nav navbar-right">
+				<li>
+					<span>
+						{%if app.session.get('_locale') is defined and app.session.get('_locale')=='en'%}
+							<a href="{{ path('jmn_product_language', {'_locale' : 'fr'}) }}" class="active">Francais</a>
+						{%else%}
+							<a href="{{ path('jmn_product_language', {'_locale' : 'en'}) }}" class="active">English</a>
+						{%endif%}
+					</span>
+				</li>
+			  </ul>
+			</div>
+		</div>

@@ -1,0 +1,31 @@
+    <table class="table table-bordered records_list">
+        <thead>
+            <tr>
+                <th width="6%">{{'label.id'|trans([],'JmnProductBundle')}}</th>
+                <th width="12%">{{'label.reference'|trans([],'JmnProductBundle')}}</th>
+                <th width="10%">{{'label.category'|trans([],'JmnProductBundle')}}</th>
+                <th width="20%">{{'label.name'|trans([],'JmnProductBundle')}}</th>
+                <th width="8%">{{'label.unit'|trans([],'JmnProductBundle')}}</th>
+                <th width="12%">{{'label.value'|trans([],'JmnProductBundle')}}</th>
+                <th width="130px" nowrap>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for param in params %}
+            <tr>
+                <td><a href="{{ path('param_show', { 'id': param.id }) }}">{{ param.id }}</a></td>
+                <td>{{ param.reference }}</td>
+                <td>{{ param.category }}</td>
+                <td>{{ param.name }}</td>
+                <td>{{ param.unit }}</td>
+                <td>{{ param.value }}</td>
+                <td class="list-action">
+                    <a href="{{ path('param_show', { 'id': param.id }) }}">{{'action.show'|trans([],'JmnProductBundle')}}</a>
+                    <a href="{{ path('param_edit', { 'id': param.id }) }}">{{'action.edit'|trans([],'JmnProductBundle')}}</a>
+                </td>
+            </tr>
+		{%else%}
+			<tr><td colspan="7">{{'No data found'|trans([],'JmnProductBundle')}}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>

@@ -1,0 +1,106 @@
+{% extends 'JmnProductBundle::leftcol.html.twig' %}
+{% block actions %}
+	{%include "JmnProductBundle:Products:showactions.html.twig"%}
+{% endblock %}
+{% block body %}
+    	<legend><h1>{{'title.products.show'|trans([],'JmnProductBundle')}}</h1></legend>
+
+	<div class="show_content">
+	    <table>
+		<tbody>
+		    <tr>
+		        <th width="160px">{{'label.id'|trans([],'JmnProductBundle')}} :</th>
+		        <td>{{ product.id }}</td>
+		    </tr>
+		    <tr><td colspan=2>&nbsp;<td><tr>
+		    <tr>
+		        <th>{{'label.name'|trans([],'JmnProductBundle')}} :</th>
+		        <td>{{ product.name }}</td>
+		    </tr>
+		    <tr><td colspan=2>&nbsp;<td><tr>
+		    <tr>
+		        <th>{{'label.description'|trans([],'JmnProductBundle')}} :</th>
+		        <td>{{ product.description }}</td>
+		    </tr>
+		    <tr><td colspan=2>&nbsp;<td><tr>
+		    <tr>
+		        <th>{{'label.price'|trans([],'JmnProductBundle')}} :</th>
+		        <td>{{ product.price }}</td>
+		    </tr>
+		    <tr><td colspan=2>&nbsp;<td><tr>
+		    <tr>
+		        <th>{{'label.creationdate'|trans([],'JmnProductBundle')}} :</th>
+		        <td>{% if product.creationdate %}{{ product.creationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+		    </tr>
+		    <tr><td colspan=2>&nbsp;<td><tr>
+		    <tr>
+		        <th>{{'label.createdby'|trans([],'JmnProductBundle')}} :</th>
+		        <td>{%if product.createdby %}{{ product.createdby }}{%else%}---{%endif%}</td>
+		    </tr>
+		    <tr><td colspan="2">&nbsp;<td><tr>
+		</tbody>
+	    </table>
+	</div>
+
+
+	<div class="container">
+	  <!-- Modal delete entity-->
+	  <div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+		
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h4 class="modal-title">{{'message.alert.delete'|trans([],'JmnProductBundle')}}</h4>
+			</div>
+			<div class="modal-body">
+			  <p>{{'message.confirm.delete'|trans([],'JmnProductBundle')}}</p>
+			</div>
+			<div class="modal-footer">
+				{{ form_start(delete_form) }}
+					<input type="submit" value="{{'action.confirm'|trans([],'JmnProductBundle')}}">
+				{{ form_end(delete_form) }}
+			</div>
+		  </div>
+		  
+		</div>
+	  </div>
+	</div>
+
+	<!-- begin edit product form created by modal dialog-->
+	<div class="container">
+	  <!-- Modal -->
+	  <div class="modal fade" id="edit_product" role="dialog">
+		<div class="modal-dialog">
+		
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h4 class="modal-title">{{'action.edit'|trans([],'JmnProductBundle')}} {{'entity.product'|trans([],'JmnProductBundle')}}</h4>
+			</div>
+			<div class="modal-message"></div>
+			<form action="{{ path('products_edit',{'id':product.id})}}" method="post" class="style">
+				<div class="modal-body">
+					{{ form_errors(form) }}
+						{%include "JmnProductBundle:Products:newform.html.twig"%}
+					{{ form_rest(form) }}
+				</div>
+				<div class="modal-footer">
+					<button class="close_modal_add" data-dismiss="modal">{{'action.close'|trans([],'JmnProductBundle')}}</button>
+					<input type="submit" value="{{'action.update'|trans([],'JmnProductBundle')}}">
+				</div>
+			</form>	
+		  </div>
+		  
+		</div>
+	  </div>
+	</div>
+	<!-- end edit product form created by modal dialog-->
+
+	{% block javascripts %}
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/bootstrap/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/jquery/jquery.min.js') }}"></script>
+	{% endblock %}
+{% endblock %}

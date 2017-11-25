@@ -1,0 +1,16 @@
+{% extends 'JmnProductBundle::leftcol.html.twig' %}
+{% block body %}
+	<div id="body-content">
+		<form action="{{ path('products_new') }}" method="post" class="style">
+			{{ form_errors(form) }}
+			<div class="actions_content">
+				{%include "JmnProductBundle:Products:newactions.html.twig"%}
+			</div>
+    			<legend><h1>{{'title.products.creation'|trans([],'JmnProductBundle')}}</h1></legend>
+			<div class="show_content">
+				{%include "JmnProductBundle:Products:newform.html.twig"%}
+			</div>
+			{{ form_rest(form) }}
+		</form>	
+	</div>
+{% endblock %}

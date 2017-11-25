@@ -1,0 +1,67 @@
+{% extends 'JmnProductBundle::leftcol.html.twig' %}
+{% block actions %}
+	{%include "JmnProductBundle:Products:actions.html.twig"%}
+{% endblock %}
+{% block body %}
+    	<legend><h1>{{'title.products.list'|trans([],'JmnProductBundle')}}</h1></legend>
+	<div id="content-list">
+		{%include "JmnProductBundle:Products:tblist.html.twig"%}
+	</div>
+
+	<!-- begin add product form created by modal dialog-->
+	<div class="container">
+	  <!-- Modal -->
+	  <div class="modal fade" id="add_product" role="dialog">
+		<div class="modal-dialog">
+		
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h4 class="modal-title">{{'action.add'|trans([],'JmnProductBundle')}} {{'entity.product'|trans([],'JmnProductBundle')}}</h4>
+			</div>
+			<div class="modal-message"></div>
+			<form action="{{ path('products_new')}}" method="post" class="style">
+				<div class="modal-body">
+					{{ form_errors(form) }}
+						{%include "JmnProductBundle:Products:newform.html.twig"%}
+					{{ form_rest(form) }}
+				</div>
+				<div class="modal-footer">
+					<button class="close_modal_add" data-dismiss="modal">{{'action.close'|trans([],'JmnProductBundle')}}</button>
+					<input type="submit" value="{{'action.create'|trans([],'JmnProductBundle')}}">
+				</div>
+			</form>	
+		  </div>
+		  
+		</div>
+	  </div>
+	</div>
+	<!-- end add product form created by modal dialog-->	
+	
+	{% block javascripts %}
+		<script>	
+			$("#btn-search").click(function(){
+				if($("#inp-search").val()==""){
+					alert("Search fields is empty!");
+					return false;
+				}
+				var criteria = $("#inp-search").val();			
+				$('#content-list').html("<center>{{'message.search_inprogress'|trans([],'JmnProductBundle')}} >>&nbsp;<img src=\"{{ asset('images/others/loading.gif') }}\" border='0' /></center>");
+				var DATA = 'description=' + criteria;
+				$.ajax({
+					type: "POST",
+					url: "{{ path('products_search')}}",
+					data: DATA,
+					cache: false,
+					success: function(data){
+						$('#content-list').html(data);
+					}
+				});
+				return false;
+			});
+		</script>
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/bootstrap/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/jquery/jquery.min.js') }}"></script>
+	{% endblock %}
+{% endblock %}

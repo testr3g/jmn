@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+		<meta content="" name="Description" />
+		<meta content="José Moise N'VEKOUNOU" name="Author" />
+		<meta content="" name="Reply-to" />
+		<meta content="" name="Copyright" />
+		<meta content="" name="Keyword" />
+		<meta content="FR" http-equiv="Content-Language" />
+		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %}Test R3G{% endblock %}</title>
+        {% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('bundles/jmnproduct/css/bootstrap/bootstrap.min.css') }}">	
+			<link rel="stylesheet" href="{{ asset('bundles/jmnproduct/css/style.css') }}">					
+		{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			{%include "JmnProductBundle:Default:menu.html.twig"%}
+		</nav>
+		<div class="container-fluid">
+			<div class="row content">
+				<div class="col-sm-3 sidenav">
+					{% block sidebar %}{% endblock %}
+				</div>
+				<div class="col-sm-9 main-content">
+					<div class="actions_content">
+						{% block actions %}{% endblock %}
+					</div>			
+					<div class="message_content">
+						{%include "JmnProductBundle:Default:message.html.twig"%}
+					</div>
+					<div id="body_content">
+						{% block body %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="container-fluid">
+		  <p>Footer Text</p>
+		</footer>
+		{% block javascripts %}
+		
+		{% endblock %}
+	</body>
+</html>

@@ -1,0 +1,15 @@
+jmn_product_products:
+    resource: "@JmnProductBundle/Resources/config/routing/products.yml"
+    prefix:   /products
+jmn_param_products:
+    resource: "@JmnProductBundle/Resources/config/routing/param.yml"
+    prefix:   /param
+jmn_product_homepage:
+    path:     /
+    defaults: { _controller: JmnProductBundle:Default:index }
+jmn_product_language:
+    path:     /{_locale}/
+    defaults: { _controller: JmnProductBundle:Default:language }
+    methods:  [GET, POST]
+    requirements:
+        _locale: en|fr  

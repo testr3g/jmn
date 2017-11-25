@@ -1,0 +1,76 @@
+{% extends 'JmnProductBundle::leftcol.html.twig' %}
+{% block actions %}
+	{%include "JmnProductBundle:Param:showactions.html.twig"%}
+{% endblock %}
+{% block body %}
+	<div id="body-content">
+    		<legend><h1>{{'title.param.show'|trans([],'JmnProductBundle')}}</h1></legend>
+		<div class="show_content">
+			{%include "JmnProductBundle:Param:tbshow.html.twig"%}
+		</div>
+	</div>
+	<!--Begin duplicate modal form -->
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="add_param" role="dialog">
+			<div class="modal-dialog">
+			
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">{{'action.duplicate'|trans([],'JmnProductBundle')}} {{'entity.setting'|trans([],'JmnProductBundle')}}</h4>
+				</div>
+				<form action="{{ path('param_new') }}" method="post" class="style">
+					<div class="modal-body">
+						{{ form_errors(form) }}
+						{%include "JmnProductBundle:Param:newform.html.twig"%}
+						{{ form_rest(form) }}
+					</div>
+					<div class="modal-footer">
+						<button class="close_modal_add" data-dismiss="modal">{{'action.close'|trans([],'JmnProductBundle')}}</button>
+						<input type="submit" value="{{'action.create'|trans([],'JmnProductBundle')}}">
+					</div>
+				</form>	
+			  </div>
+			  
+			</div>
+		</div>
+	</div>
+	<!--End duplicate modal form -->
+
+	<!--Begin edit modal form -->	
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="edit_param" role="dialog">
+			<div class="modal-dialog">
+			
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">{{'action.edit'|trans([],'JmnProductBundle')}} {{'entity.setting'|trans([],'JmnProductBundle')}}</h4>
+				</div>
+				<form action="{{ path('param_edit',{'id':param.id}) }}" method="post" class="style">
+					<div class="modal-body">
+						{{ form_errors(edit_form) }}
+						{%include "JmnProductBundle:Param:editform.html.twig"%}
+						{{ form_rest(edit_form) }}
+					</div>
+					<div class="modal-footer">
+						<button class="close_modal_add" data-dismiss="modal">{{'action.close'|trans([],'JmnProductBundle')}}</button>
+						<input type="submit" value="{{'action.edit'|trans([],'JmnProductBundle')}}">
+					</div>
+				</form>	
+			  </div>
+			  
+			</div>
+		</div>
+	</div>	
+	
+	
+	{% block javascripts %}
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/bootstrap/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/jmnproduct/js/vendor/jquery/jquery.min.js') }}"></script>
+	{% endblock %}
+{% endblock %}

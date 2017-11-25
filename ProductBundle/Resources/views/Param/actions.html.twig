@@ -1,0 +1,18 @@
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<table>
+				<tr>
+					<td class="form-group">
+						<input type="text" class="form-control" id="inp-search">
+					</td>
+					<td><button type="submit" id="btn-search">{{'action.search'|trans([],'JmnProductBundle')}}</button></td>
+					<td>
+						<button type="button" class="btn btn-info btn-lg modal-create" data-toggle="modal" data-target="#add_param">{{'action.add'|trans([],'JmnProductBundle')}}</button>
+					</td>
+					<td class="list_link">
+						<a href="{{ path('param_index') }}">{{'title.list'|trans([],'JmnProductBundle')}}</a>
+					</td>
+				</tr>
+			</table>		
+		</div>
+	</div>	
