@@ -1,7 +1,7 @@
 # Installation and configuration
 
 ## Install Symfony 3.2 et get the bundle here
-Get the Jmn/ProductBundle and put it in the directory bundles in the vendor
+Get the Jmn/ProductBundle and put it in the directory bundles of the vendor
 vendor/bundles/Jmn/ProductBundle
 
 ## Add JmnProductBundle to your application kernel
