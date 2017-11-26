@@ -1,6 +1,6 @@
 # Installation and configuration
 
-## Install Symfony 3.2 et get the bundle here
+## Install Symfony 3.2.8 et get the bundle ProductBundle
 Get the Jmn/ProductBundle and put it in the directory bundles of the vendor
 vendor/bundles/Jmn/ProductBundle
 
