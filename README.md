@@ -1,8 +1,10 @@
 # Installation and configuration
 
 ## Install Symfony 3.2.8 et get the bundle ProductBundle
-Get the Jmn/ProductBundle and put it in the directory bundles of the vendor
-vendor/bundles/Jmn/ProductBundle
+- Install Symfony 3.2.8
+- Download the archive and unzip jmn-master form https://github.com/testr3g/jmn/
+- Create a directory 'vendor/bundles/Jmn/' in your symfony installation
+- Put 'ProductBundle' umzipped in the directory 'vendor/bundles/Jmn/' created
 
 ## Add JmnProductBundle to your application kernel
 
@@ -66,3 +68,7 @@ framework:
    ...
     translator:      { fallbacks: ['%locale%'] }
    ...
+   
+## Url
+
+Enjoy your product application by the url : http://your_server/web/app_dev.php/products/
